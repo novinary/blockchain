@@ -15,7 +15,7 @@ def valid_proof(last_proof, proof):
     # hash the guess
     guess_hash = hashlib.sha256(guess).hexdigest()
     # return true if the last 6 digits of the hash = 0s
-    return guess_hash[:6] == "000000"
+    return guess_hash[:4] == "0000"
 
 def proof_of_work(last_proof):
     """

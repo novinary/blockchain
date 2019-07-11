@@ -136,6 +136,7 @@ def mine():
         return 'No proof found', 400
     else:
         last_proof = blockchain.last_block['proof']
+        lastBlock = blockchain.last_block
         # check and validate new proof
         if blockchain.valid_proof(last_proof, proof['proof']):
             # We must receive a reward for finding the proof.
@@ -147,7 +148,7 @@ def mine():
         )
     
         # Forge the new BLock by adding it to the chain
-        previous_hash = blockchain.hash(last_block)
+        previous_hash = blockchain.hash(lastBlock)
         block = blockchain.new_block(proof, previous_hash)
 
         response = {
@@ -208,4 +209,4 @@ if __name__ == '__main__':
         port = int(sys.argv[1])
     else:
         port = 5000
-    app.run(host='127.0.0.1', port=6700)
+    app.run(host='127.0.0.1', port=6900)
