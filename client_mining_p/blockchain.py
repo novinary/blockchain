@@ -157,13 +157,8 @@ def mine():
             'proof': block['proof'],
             'previous_hash': block['previous_hash'],
         }
-        # Return a message indicating success or failure.s
+        # Return a message indicating success or failure.
         return jsonify(response), 200
-        else:
-            response = {
-                'message': "Proof is invalid!"
-            }
-            return jsonify(response), 401
 
 
 
@@ -213,4 +208,4 @@ if __name__ == '__main__':
         port = int(sys.argv[1])
     else:
         port = 5000
-    app.run(host='127.0.0.1', port=6500)
+    app.run(host='127.0.0.1', port=6700)
